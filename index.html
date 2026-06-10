@@ -27,6 +27,50 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 .header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; background: linear-gradient(135deg, #fff 0%, var(--accent2) 50%, var(--accent3) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .header-sub { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-top: 0.6rem; letter-spacing: 0.04em; }
+
+/* Telegram Butonu Stilleri */
+.btn-telegram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.65rem 1.5rem;
+  background: rgba(42, 171, 238, 0.1);
+  border: 1px solid rgba(42, 171, 238, 0.3);
+  border-radius: 100px;
+  color: #2AABEE;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  animation: tgPulse 2s infinite;
+}
+.btn-telegram svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+.btn-telegram:hover {
+  background: #2AABEE;
+  color: #fff;
+  border-color: #2AABEE;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(42, 171, 238, 0.4);
+  animation: none;
+}
+.btn-telegram:hover svg {
+  transform: translateX(2px) translateY(-2px);
+}
+@keyframes tgPulse {
+  0% { box-shadow: 0 0 0 0 rgba(42, 171, 238, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(42, 171, 238, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(42, 171, 238, 0); }
+}
+
 .ticker-wrap { width: 100%; max-width: 500px; overflow: hidden; background: rgba(124, 92, 252, 0.06); border: 1px solid rgba(124, 92, 252, 0.2); border-radius: 10px; padding: 0.6rem 0; margin-bottom: 2rem; animation: fadeDown 0.7s 0.1s ease both; }
 .ticker-inner { display: inline-block; white-space: nowrap; animation: ticker 32s linear infinite; font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent2); padding-left: 100%; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-100%); } }
@@ -125,6 +169,17 @@ input[type="text"]#mac { text-transform: uppercase; letter-spacing: 0.1em; }
 <div class="header-badge"><span class="dot"></span>IPTV Tool — Active</div>
 <h1>İnadına TV<br>Mac → M3U</h1>
 <p class="header-sub">// Hızlı · Kurulumsuz · Ücretsiz</p>
+
+<!-- TELEGRAM BUTONU BAŞLANGICI -->
+<a href="https://t.me/inadinatv2" target="_blank" class="btn-telegram">
+  <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+    <line x1="22" y1="2" x2="11" y2="13"></line>
+    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+  </svg>
+  Telegram'da Bize Katıl
+</a>
+<!-- TELEGRAM BUTONU BİTİŞİ -->
+
 </div>
 
 <div class="ticker-wrap">
