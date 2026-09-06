@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İnadına TV — Mac to M3U Converter v2.3.2</title>
+<title>İnadına TV — Mac to M3U Converter v2.4.0</title>
+<meta name="description" content="MAC adresli IPTV hesaplarını (Stalker / MAG / Ministra) saniyeler içinde M3U listesine çevirin. Kurulumsuz, ücretsiz, tarayıcıdan çalışan dönüştürücü.">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mactom3u.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="İnadına TV — Mac to M3U Converter">
+<meta property="og:description" content="MAC hesaplarınızı saniyeler içinde M3U listesine çevirin. Kurulumsuz, ücretsiz.">
+<meta property="og:site_name" content="İnadına TV">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237c5cfc'/%3E%3Cpath d='M17.5 6 9 18h6l-1.5 8L22 14h-6z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -138,7 +148,7 @@ input[type="text"]#mac { text-transform: uppercase; letter-spacing: 0.1em; }
 .select-all-row:hover { background: rgba(255,255,255,0.02); }
 .select-all-row .cat-name { font-weight: 700; font-size: 0.9rem; }
 .modal-footer { padding: 1.2rem 1.8rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, transparent 100%); gap: 1rem; flex-wrap: wrap; }
-.save-modal-footer { display: flex; justify-content: flex-end; gap: 0.7rem; }
+.save-modal-footer { display: flex; justify-content: flex-end; gap: 0.7rem; flex-wrap: wrap; }
 .footer-count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); }
 .footer-count strong { color: var(--accent2); font-size: 0.85rem; }
 .footer-actions { display: flex; gap: 0.7rem; }
@@ -146,9 +156,36 @@ input[type="text"]#mac { text-transform: uppercase; letter-spacing: 0.1em; }
 .btn-cancel:hover { background: rgba(255,255,255,0.05); color: var(--text); border-color: rgba(255,255,255,0.15); }
 .btn-download { padding: 0.65rem 1.4rem; border-radius: 10px; background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%); border: none; color: #fff; font-family: var(--font-head); font-weight: 700; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 4px 16px rgba(124, 92, 252, 0.35); }
 .btn-download:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(124, 92, 252, 0.5); }
-.btn-download:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-download:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 .btn-download svg { width: 16px !important; height: 16px !important; flex-shrink: 0; }
 .page-footer { margin-top: 2rem; font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); text-align: center; letter-spacing: 0.06em; animation: fadeUp 0.7s 0.3s ease both; }
+
+/* ————— v2.4.0 eklemeleri ————— */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.noscript-box { width: 100%; max-width: 500px; margin: 0 auto 1.5rem; padding: 1rem 1.2rem; border-radius: 12px; background: rgba(255, 77, 109, 0.12); border: 1px solid rgba(255, 77, 109, 0.3); color: var(--red); font-family: var(--font-mono); font-size: 0.78rem; text-align: center; line-height: 1.5; }
+input.invalid { border-color: var(--red) !important; box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.15) !important; }
+.field-hint { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); margin-top: 0.4rem; letter-spacing: 0.03em; min-height: 0.9em; transition: color 0.2s; }
+.field-hint.error { color: var(--red); }
+.progress-wrap { margin-top: 1rem; display: none; }
+.progress-wrap.visible { display: block; animation: slideIn 0.3s ease; }
+.progress-track { width: 100%; height: 6px; border-radius: 100px; background: var(--surface2); border: 1px solid var(--border); overflow: hidden; }
+.progress-bar { height: 100%; width: 0%; border-radius: 100px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent3) 100%); box-shadow: 0 0 12px rgba(124, 92, 252, 0.55); transition: width 0.35s ease; }
+.progress-meta { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-top: 0.55rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); }
+.btn-stop { padding: 0.3rem 0.85rem; border-radius: 100px; background: rgba(255, 77, 109, 0.1); border: 1px solid rgba(255, 77, 109, 0.3); color: var(--red); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+.btn-stop:hover { background: var(--red); color: #fff; border-color: var(--red); }
+.empty-state { padding: 2.5rem 1rem; text-align: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); display: none; line-height: 1.6; }
+.empty-state.visible { display: block; }
+.modal-warning { margin: 0.8rem 1rem 0; padding: 0.6rem 0.9rem; border-radius: 8px; background: rgba(255, 77, 109, 0.12); border: 1px solid rgba(255, 77, 109, 0.28); color: var(--red); font-family: var(--font-mono); font-size: 0.72rem; display: none; flex-shrink: 0; }
+.modal-warning.visible { display: block; animation: slideIn 0.25s ease; }
+.save-meta { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-bottom: 1.6rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
+.save-meta strong { color: var(--accent2); font-size: 0.85rem; }
+.btn-ghost { padding: 0.65rem 1.2rem; border-radius: 10px; background: transparent; border: 1px solid rgba(124, 92, 252, 0.35); color: var(--accent2); font-family: var(--font-head); font-weight: 600; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.45rem; }
+.btn-ghost:hover { background: rgba(124, 92, 252, 0.12); }
+.btn-ghost svg { width: 15px; height: 15px; }
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
 @media (max-width: 600px) {
 .page { padding: 1rem; }
 .card { padding: 1.5rem; max-width: 100%; }
@@ -159,20 +196,25 @@ input[type="text"]#mac { text-transform: uppercase; letter-spacing: 0.1em; }
 .footer-actions { flex-direction: row; width: 100%; gap: 0.6rem; }
 .btn-cancel, .btn-download { flex: 1; width: auto; justify-content: center; padding: 0.8rem 0.5rem; font-size: 0.85rem;}
 .save-modal-footer { flex-direction: row; width: 100%; gap: 0.6rem; }
+.save-modal-footer .btn-ghost { flex: 1; justify-content: center; }
 }
 </style>
 </head>
 <body>
 
 <div class="page">
+<noscript>
+<div class="noscript-box">Bu aracın çalışabilmesi için tarayıcınızda JavaScript etkin olmalıdır.</div>
+</noscript>
+
 <div class="header">
 <div class="header-badge"><span class="dot"></span>IPTV Tool — Active</div>
 <h1>İnadına TV<br>Mac → M3U</h1>
 <p class="header-sub">// Hızlı · Kurulumsuz · Ücretsiz</p>
 
 <!-- TELEGRAM BUTONU BAŞLANGICI -->
-<a href="https://t.me/inadinatv2" target="_blank" class="btn-telegram">
-  <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+<a href="https://t.me/inadinatv2" target="_blank" rel="noopener noreferrer" class="btn-telegram">
+  <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
     <line x1="22" y1="2" x2="11" y2="13"></line>
     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
   </svg>
@@ -184,7 +226,7 @@ input[type="text"]#mac { text-transform: uppercase; letter-spacing: 0.1em; }
 
 <div class="ticker-wrap">
 <div class="ticker-inner">
-🚀 MAC hesaplarınızı saniyeler içinde M3U listesine çevirin &nbsp;·&nbsp; ⚡ Asenkron paralel tarama ile bekleme süresi %80 azaltıldı &nbsp;·&nbsp; ✨ TS ve M3U8 uzantı seçimi eklendi! &nbsp;·&nbsp; 403 bypass aktif &nbsp;·&nbsp; İndirme öncesi isim belirleme özelliği eklendi! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+🚀 MAC hesaplarınızı saniyeler içinde M3U listesine çevirin &nbsp;·&nbsp; ⚡ Asenkron paralel tarama ile bekleme süresi %80 azaltıldı &nbsp;·&nbsp; ✨ TS ve M3U8 uzantı seçimi &nbsp;·&nbsp; 📊 Canlı ilerleme çubuğu + taramayı durdurma &nbsp;·&nbsp; 🔒 Güvenli bağlantı doğrulaması &nbsp;·&nbsp; 403 bypass aktif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div> 
 </div>
 
@@ -192,7 +234,7 @@ input[type="text"]#mac { text-transform: uppercase; letter-spacing: 0.1em; }
 <div class="divider"><span>Bağlantı Ayarları</span></div>
 
 <div class="field">
-<label><svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>Sistem Türü</label>
+<label for="type"><svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>Sistem Türü</label>
 <select id="type">
 <option value="machttp">MAC-HTTP Stream (play/live.php)</option>
 <option value="stalker">Stalker Portal (MAG/Ministra)</option>
@@ -200,7 +242,7 @@ input[type="text"]#mac { text-transform: uppercase; letter-spacing: 0.1em; }
 </div>
 
 <div class="field">
-<label><svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>Yayın Uzantısı</label>
+<label for="stream-ext"><svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>Yayın Uzantısı</label>
 <select id="stream-ext">
 <option value="ts">MPEG-TS (.ts) — Standart / Önerilen</option>
 <option value="m3u8">HLS (.m3u8) — Hızlı Yükleme</option>
@@ -208,378 +250,869 @@ input[type="text"]#mac { text-transform: uppercase; letter-spacing: 0.1em; }
 </div>
 
 <div class="field">
-<label><svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>Portal URL</label>
-<input type="url" id="portal" placeholder="http://sup-4k.org:80" value="http://sup-4k.org:80">
+<label for="portal"><svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>Portal URL</label>
+<input type="url" id="portal" placeholder="http://sup-4k.org:80" value="http://sup-4k.org:80" autocomplete="url" spellcheck="false" aria-describedby="portal-hint">
+<div class="field-hint" id="portal-hint">Örnek: http://site.com:80 &nbsp;veya&nbsp; http://site.com/c/</div>
 </div>
 
 <div class="field">
-<label><svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3a2 2 0 00-2 2v14a2 2 0 002 2h6m0-18a2 2 0 012 2v4m-6 12h6a2 2 0 002-2v-4"/></svg>MAC Adresi</label>
-<input type="text" id="mac" placeholder="00:1A:79:XX:XX:XX">
+<label for="mac"><svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3a2 2 0 00-2 2v14a2 2 0 002 2h6m0-18a2 2 0 012 2v4m-6 12h6a2 2 0 002-2v-4"/></svg>MAC Adresi</label>
+<input type="text" id="mac" placeholder="00:1A:79:XX:XX:XX" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="17" inputmode="text" aria-describedby="mac-hint">
+<div class="field-hint" id="mac-hint">İki noktaları koymasanız da otomatik biçimlendirilir.</div>
 </div>
 
-<button onclick="baglanVeKategorileriGetir()" id="btn-connect" class="btn-connect">
-<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-<span>Kategorileri Getir</span>
-<div id="btn-loader" class="loader"></div>
+<button type="button" onclick="baglanVeKategorileriGetir()" id="btn-connect" class="btn-connect">
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+<span id="btn-connect-text">Kategorileri Getir</span>
+<div id="btn-loader" class="loader" aria-hidden="true"></div>
 </button>
 
-<a href="https://dosya.co/chgjhoe8uzjj/%C4%B0NAD%C4%B0NATV.apk.html" target="_blank" class="btn-apk">
-<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+<a href="https://dosya.co/chgjhoe8uzjj/%C4%B0NAD%C4%B0NATV.apk.html" target="_blank" rel="noopener noreferrer" class="btn-apk">
+<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
 İnadına TV APK İndir
 </a>
 
-<div id="status"></div>
+<div id="status" role="status" aria-live="polite"></div>
+
+<div class="progress-wrap" id="progress-wrap">
+<div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+<div class="progress-meta">
+<span id="progress-text">%0 · hazırlanıyor</span>
+<button type="button" id="btn-stop-scan" class="btn-stop" onclick="taramayiDurdur()">Durdur</button>
+</div>
+</div>
 </div>
 
-<div class="page-footer">İnadına TV · Mac To M3U Converter · v2.3.2</div>
+<div class="page-footer">İnadına TV · Mac To M3U Converter · v2.4.0</div>
 </div>
 
 <div id="category-modal" class="modal-backdrop">
-<div class="modal" role="dialog" aria-modal="true">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="category-modal-title">
 <div class="modal-header">
-<div class="modal-title-area"><h2>Kategorileri Seç</h2><p id="modal-subtitle">Yükleniyor...</p></div>
-<button onclick="kapatModal()" class="modal-close" aria-label="Kapat"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg></button>
+<div class="modal-title-area"><h2 id="category-modal-title">Kategorileri Seç</h2><p id="modal-subtitle">Yükleniyor...</p></div>
+<button type="button" onclick="kapatModal()" class="modal-close" aria-label="Kapat"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg></button>
 </div>
-<div class="modal-search"><input type="text" id="search-categories" class="search-input" placeholder="Kategorilerde ara..."></div>
-<label class="select-all-row" for="check-all" onclick="toggleAllCustom()">
-<div class="custom-check" id="check-all-visual" style="width:22px;height:22px;border-radius:7px;"></div>
+<div class="modal-search"><input type="text" id="search-categories" class="search-input" placeholder="Kategorilerde ara..." autocomplete="off" spellcheck="false" aria-label="Kategorilerde ara"></div>
+<div class="modal-warning" id="modal-warning" role="alert"></div>
+<label class="select-all-row" for="check-all" onclick="toggleAllCustom(event)">
+<div class="custom-check" id="check-all-visual" style="width:22px;height:22px;border-radius:7px;" aria-hidden="true"></div>
 <input type="checkbox" id="check-all" class="real-checkbox">
 <span class="cat-name">Tümünü Seç</span>
 <span id="selected-count" style="margin-left:auto;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">0 / 0</span>
 </label>
 <div class="category-list" id="category-list"></div>
+<div class="empty-state" id="category-empty">Aramanıza uyan kategori bulunamadı.</div>
 <div class="modal-footer">
 <div class="footer-count"><strong id="footer-sel-num">0</strong> kategori seçildi</div>
 <div class="footer-actions">
-<button onclick="kapatModal()" class="btn-cancel">İptal</button>
-<button onclick="indirmeyiBaslat()" id="btn-download" class="btn-download"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>M3U Oluştur</button>
+<button type="button" onclick="kapatModal()" class="btn-cancel">İptal</button>
+<button type="button" onclick="indirmeyiBaslat()" id="btn-download" class="btn-download"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span id="btn-download-text">M3U Oluştur</span><div id="download-loader" class="loader" aria-hidden="true"></div></button>
 </div>
 </div>
 </div>
 </div>
 
 <div id="save-modal" class="modal-backdrop">
-<div class="modal" style="max-width: 420px;">
+<div class="modal" style="max-width: 420px;" role="dialog" aria-modal="true" aria-labelledby="save-modal-title">
 <div class="save-modal-content">
-<h2>M3U Dosyasını Kaydet</h2>
+<h2 id="save-modal-title">M3U Dosyasını Kaydet</h2>
 <p>Kanal listesi başarıyla oluşturuldu. Cihazınıza indirmek için bir isim belirleyin.</p>
-<div class="save-input-group"><input type="text" id="final-filename" class="save-input" placeholder="Dosya adı..."></div>
+<div class="save-meta">
+<span><strong id="save-channel-count">0</strong> kanal</span>
+<span><strong id="save-file-size">0 KB</strong></span>
+<span><strong id="save-group-count">0</strong> grup</span>
+</div>
+<div class="save-input-group"><input type="text" id="final-filename" class="save-input" placeholder="Dosya adı..." autocomplete="off" spellcheck="false" aria-label="Dosya adı"></div>
 <div class="save-modal-footer">
-<button class="btn-cancel" onclick="kapatSaveModal()">İptal</button>
-<button class="btn-download" onclick="gercekIndirmeyiTetikle()"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>Kaydet (.m3u)</button>
+<button type="button" class="btn-ghost" id="btn-copy" onclick="m3uKopyala()"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>Kopyala</button>
+<button type="button" class="btn-cancel" onclick="kapatSaveModal()">İptal</button>
+<button type="button" class="btn-download" onclick="gercekIndirmeyiTetikle()"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>Kaydet (.m3u)</button>
 </div>
 </div>
 </div>
 </div>
 
 <script>
+/* ================================================================== */
+/*  İnadına TV — Mac to M3U Converter v2.4.0                          */
+/* ================================================================== */
+
+const APP_VERSION = '2.4.0';
+const SETTINGS_KEY = 'iptv_settings';
+const CONCURRENCY = 6;            // Aynı anda atılan paralel istek sayısı
+const ROWS_PER_PAGE = 500;        // Sayfa başına istenen kanal sayısı
+const MAX_PAGES_PER_GENRE = 80;   // Sonsuz döngü koruması (kategori başına)
+const REQUEST_RETRIES = 1;        // Ağ hatasında denenecek ek istek sayısı
+
 let apiToken = '';
 let katMap = {};
-let allCategories =[];
-let generatedM3uContent = "";
+let allCategories = [];
+let generatedM3uContent = '';
+let generatedStats = { channels: 0, groups: 0 };
+let isScanning = false;
+let scanCancelled = false;
+let scanController = null;
+let searchBound = false;
+
+const $ = (id) => document.getElementById(id);
+
+/* ------------------------------------------------------------------ */
+/*  Küçük yardımcılar                                                  */
+/* ------------------------------------------------------------------ */
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** HTML içine yazılacak metni kaçışlar (portaldan gelen veri güvenilmezdir). */
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+}
+
+/** M3U öznitelik değerlerini temizler: tırnak ve satır sonu listeyi bozar. */
+function m3uAttr(value) {
+  return String(value ?? '')
+    .replace(/[\r\n\t]+/g, ' ')
+    .replace(/"/g, "'")
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+/** MAC adresini 00:1A:79:XX:XX:XX biçimine getirir. */
+function normalizeMac(value) {
+  const hex = String(value || '').replace(/[^0-9a-fA-F]/g, '').toUpperCase();
+  if (hex.length === 12) return hex.match(/.{2}/g).join(':');
+  return String(value || '').trim().toUpperCase();
+}
+
+function isValidMac(value) {
+  return /^([0-9A-F]{2}:){5}[0-9A-F]{2}$/.test(normalizeMac(value));
+}
+
+/** Portal adresini doğrular, şema eksikse tamamlar. Geçersizse null döner. */
+function normalizePortal(value) {
+  let v = String(value || '').trim();
+  if (!v) return null;
+  // ftp:// gibi desteklenmeyen bir şema yazıldıysa "http://" önekiyle bozma, reddet
+  const scheme = v.match(/^([a-z][a-z0-9+.-]*):\/\//i);
+  if (scheme && !/^https?$/i.test(scheme[1])) return null;
+  if (!/^https?:\/\//i.test(v)) v = 'http://' + v;
+  try {
+    const u = new URL(v);
+    if (!/^https?:$/i.test(u.protocol)) return null;
+    if (!u.hostname || !u.hostname.includes('.')) return null;
+    return v;
+  } catch {
+    return null;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Ayarlar (localStorage)                                             */
+/* ------------------------------------------------------------------ */
 
 function getDefaultFilename() {
-const d = new Date();
-const day = String(d.getDate()).padStart(2, '0');
-const month = String(d.getMonth() + 1).padStart(2, '0');
-const hm = String(d.getHours()).padStart(2, '0') + String(d.getMinutes()).padStart(2, '0');
-return `INADINATV_MAC_${day}_${month}_${hm}`;
+  const d = new Date();
+  const day = String(d.getDate()).padStart(2, '0');
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const hm = String(d.getHours()).padStart(2, '0') + String(d.getMinutes()).padStart(2, '0');
+  return `INADINATV_MAC_${day}_${month}_${hm}`;
 }
 
 function loadSettings() {
-const saved = localStorage.getItem('iptv_settings');
-if (saved) { 
-const settings = JSON.parse(saved);
-if (settings.portal) document.getElementById('portal').value = settings.portal;
-if (settings.type) document.getElementById('type').value = settings.type;
-if (settings.mac) document.getElementById('mac').value = settings.mac;
-if (settings.ext) document.getElementById('stream-ext').value = settings.ext;
-}
+  let settings = null;
+  try {
+    const saved = localStorage.getItem(SETTINGS_KEY);
+    if (saved) settings = JSON.parse(saved);
+  } catch (err) {
+    // Bozuk kayıt tüm sayfayı kilitlemesin
+    console.warn('Kayıtlı ayarlar okunamadı:', err);
+    try { localStorage.removeItem(SETTINGS_KEY); } catch {}
+  }
+  if (!settings || typeof settings !== 'object') return;
+
+  if (settings.portal) $('portal').value = settings.portal;
+  if (settings.type) $('type').value = settings.type;
+  if (settings.mac) $('mac').value = normalizeMac(settings.mac);
+  if (settings.ext) $('stream-ext').value = settings.ext;
 }
 
 function saveSettings() {
-const settings = {
-portal: document.getElementById('portal').value,
-type: document.getElementById('type').value,
-mac: document.getElementById('mac').value,
-ext: document.getElementById('stream-ext').value
-};
-localStorage.setItem('iptv_settings', JSON.stringify(settings));
+  try {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify({
+      portal: $('portal').value.trim(),
+      type: $('type').value,
+      mac: $('mac').value.trim(),
+      ext: $('stream-ext').value,
+    }));
+  } catch (err) {
+    // Gizli mod / kota dolu — kritik değil
+    console.warn('Ayarlar kaydedilemedi:', err);
+  }
 }
 
+/* ------------------------------------------------------------------ */
+/*  Arama + seçim sayaçları                                            */
+/* ------------------------------------------------------------------ */
+
+function applyCategoryFilter() {
+  const query = $('search-categories').value.trim().toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('.cat-item').forEach((item) => {
+    const name = (item.dataset.name || '').toLowerCase();
+    const match = !query || name.includes(query);
+    item.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  $('category-empty').classList.toggle('visible', visible === 0);
+}
+
+/** Arama dinleyicisi yalnızca bir kez bağlanır (her modal açılışında çoğalmaz). */
 function setupSearch() {
-const searchInput = document.getElementById('search-categories');
-searchInput.addEventListener('input', (e) => {
-const query = e.target.value.toLowerCase();
-const items = document.querySelectorAll('.cat-item');
-items.forEach(item => {
-const name = item.querySelector('.cat-name').textContent.toLowerCase();
-item.style.display = name.includes(query) ? '' : 'none';
-});
-});
+  if (searchBound) return;
+  const searchInput = $('search-categories');
+  if (!searchInput) return;
+  searchInput.addEventListener('input', applyCategoryFilter);
+  searchBound = true;
 }
 
 function updateCheckAllVisual() {
-const all = document.querySelectorAll('.cat-checkbox');
-const checked = document.querySelectorAll('.cat-checkbox:checked');
-const vis = document.getElementById('check-all-visual');
-const allChecked = all.length > 0 && checked.length === all.length;
-vis.classList.toggle('checked', allChecked);
-document.getElementById('check-all').checked = allChecked;
-updateCounts();
+  const all = document.querySelectorAll('.cat-checkbox');
+  const checked = document.querySelectorAll('.cat-checkbox:checked');
+  const allChecked = all.length > 0 && checked.length === all.length;
+  $('check-all-visual').classList.toggle('checked', allChecked);
+  $('check-all').checked = allChecked;
+  updateCounts();
 }
 
 function updateCounts() {
-const all = document.querySelectorAll('.cat-checkbox');
-const checked = document.querySelectorAll('.cat-checkbox:checked');
-document.getElementById('selected-count').textContent = checked.length + ' / ' + all.length;
-document.getElementById('footer-sel-num').textContent = checked.length;
-document.getElementById('modal-subtitle').textContent = all.length + ' kategori bulundu';
+  const all = document.querySelectorAll('.cat-checkbox');
+  const checked = document.querySelectorAll('.cat-checkbox:checked');
+  $('selected-count').textContent = checked.length + ' / ' + all.length;
+  $('footer-sel-num').textContent = checked.length;
+  $('modal-subtitle').textContent = all.length + ' kategori bulundu';
 }
 
-function toggleAllCustom() {
-const checkAll = document.getElementById('check-all');
-const newState = !checkAll.checked;
-checkAll.checked = newState;
-const all = document.querySelectorAll('.cat-checkbox');
-const allVisuals = document.querySelectorAll('.cat-item .custom-check');
-all.forEach((cb, i) => {
-cb.checked = newState;
-allVisuals[i]?.classList.toggle('checked', newState);
-allVisuals[i]?.closest('.cat-item')?.classList.toggle('checked', newState);
-});
-document.getElementById('check-all-visual').classList.toggle('checked', newState);
-updateCounts();
+function toggleAllCustom(e) {
+  // <label for="check-all"> tıklamayı kendisi de ilettiği için
+  // preventDefault olmazsa kutucuk iki kez değişip eski haline dönüyordu.
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+
+  const checkAll = $('check-all');
+  const newState = !checkAll.checked;
+  checkAll.checked = newState;
+
+  document.querySelectorAll('.cat-checkbox').forEach((cb) => {
+    cb.checked = newState;
+    const item = cb.closest('.cat-item');
+    item?.querySelector('.custom-check')?.classList.toggle('checked', newState);
+    item?.classList.toggle('checked', newState);
+  });
+
+  $('check-all-visual').classList.toggle('checked', newState);
+  updateCounts();
 }
 
-async function fetchAPI(params) {
-const portal = document.getElementById('portal').value.trim();
-const mac = document.getElementById('mac').value.trim();
-const type = document.getElementById('type').value;
-try {
-const res = await fetch('/api/proxy', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ portal, mac, type, token: apiToken, params })
-});
-if (res.status === 403) throw new Error("403 Yasaklı: IPTV paneli engelliyor.");
-if (res.status === 404) throw new Error("404 Hata: Portal linki yanlış.");
-if (!res.ok) throw new Error('Sunucu hatası: ' + res.status);
-return await res.json();
-} catch (err) {
-console.error(err);
-throw err;
+function flashModalWarning(message) {
+  const box = $('modal-warning');
+  box.textContent = message;
+  box.classList.add('visible');
+  clearTimeout(flashModalWarning._t);
+  flashModalWarning._t = setTimeout(() => box.classList.remove('visible'), 2600);
 }
+
+/* ------------------------------------------------------------------ */
+/*  Ağ katmanı                                                         */
+/* ------------------------------------------------------------------ */
+
+async function fetchAPI(params, options = {}) {
+  const { signal = null, retries = REQUEST_RETRIES } = options;
+  const portal = $('portal').value.trim();
+  const mac = $('mac').value.trim();
+  const type = $('type').value;
+
+  let lastError = null;
+
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    if (signal?.aborted) throw new DOMException('İstek iptal edildi.', 'AbortError');
+    try {
+      const res = await fetch('/api/proxy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ portal, mac, type, token: apiToken, params }),
+        signal,
+      });
+
+      // Proxy'nin kendi hata mesajı varsa onu kullan
+      let payload = null;
+      try { payload = await res.json(); } catch { payload = null; }
+      const detail = payload && payload.error ? String(payload.error) : '';
+
+      if (res.status === 404 && !detail) {
+        throw new Error('Proxy servisi bulunamadı (/api/proxy). Bu araç Vercel gibi bir sunucu üzerinde çalışmalıdır.');
+      }
+      if (res.status === 403) throw new Error(detail || '403 Yasaklı: IPTV paneli engelliyor.');
+      if (res.status === 404) throw new Error(detail || '404 Hata: Portal linki yanlış.');
+      if (!res.ok) throw new Error(detail || ('Sunucu hatası: ' + res.status));
+
+      return payload || { js: null };
+    } catch (err) {
+      lastError = err;
+      const abort = err && (err.name === 'AbortError' || err.name === 'DOMException' && /iptal/i.test(err.message || ''));
+      const retryable = !abort && /ağ|network|failed to fetch|50\d|502|503|504|zaman aşımı/i.test(String(err.message || ''));
+      if (attempt >= retries || !retryable) throw err;
+      await sleep(450 * (attempt + 1));
+    }
+  }
+  throw lastError || new Error('Bilinmeyen ağ hatası.');
 }
+
+/* ------------------------------------------------------------------ */
+/*  Durum / yükleme göstergeleri                                       */
+/* ------------------------------------------------------------------ */
 
 function setStatus(msg, type = '') {
-const el = document.getElementById('status');
-el.textContent = msg;
-el.className = type;
+  const el = $('status');
+  el.textContent = msg;
+  el.className = type;
 }
 
 function setLoading(isLoading) {
-document.getElementById('btn-connect').disabled = isLoading;
-document.getElementById('btn-loader').style.display = isLoading ? 'block' : 'none';
+  $('btn-connect').disabled = isLoading;
+  $('btn-loader').style.display = isLoading ? 'block' : 'none';
 }
+
+function setDownloadLoading(isLoading) {
+  $('btn-download').disabled = isLoading;
+  $('download-loader').style.display = isLoading ? 'block' : 'none';
+  $('btn-download-text').textContent = isLoading ? 'Taranıyor...' : 'M3U Oluştur';
+}
+
+function setProgress(percent, text) {
+  const wrap = $('progress-wrap');
+  clearTimeout(hideProgress._t);
+  wrap.classList.add('visible');
+  const clamped = Math.max(0, Math.min(100, percent));
+  $('progress-bar').style.width = clamped + '%';
+  $('progress-text').textContent = text || ('%' + Math.round(clamped));
+}
+
+function hideProgress(delay = 0) {
+  clearTimeout(hideProgress._t);
+  hideProgress._t = setTimeout(() => {
+    $('progress-wrap').classList.remove('visible');
+    $('progress-bar').style.width = '0%';
+  }, delay);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Girdi doğrulama                                                    */
+/* ------------------------------------------------------------------ */
+
+function setFieldError(inputId, hintId, message) {
+  const input = $(inputId);
+  const hint = $(hintId);
+  input.classList.toggle('invalid', Boolean(message));
+  if (hint) {
+    hint.textContent = message || hint.dataset.default || '';
+    hint.classList.toggle('error', Boolean(message));
+  }
+  return !message;
+}
+
+function validateInputs() {
+  const portalRaw = $('portal').value;
+  const macRaw = $('mac').value;
+  let ok = true;
+
+  const portalOk = normalizePortal(portalRaw);
+  if (!portalOk) {
+    setFieldError('portal', 'portal-hint', 'Geçerli bir portal adresi girin. Örnek: http://site.com:80');
+    ok = false;
+  } else {
+    $('portal').value = portalOk; // Şema eksikse tamamlanmış haliyle gönder
+    setFieldError('portal', 'portal-hint', '');
+  }
+
+  if (!isValidMac(macRaw)) {
+    setFieldError('mac', 'mac-hint', 'MAC adresi 12 karakter olmalı. Örnek: 00:1A:79:1B:2C:3D');
+    ok = false;
+  } else {
+    $('mac').value = normalizeMac(macRaw);
+    setFieldError('mac', 'mac-hint', '');
+  }
+
+  return ok;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Ana akış: bağlan + kategorileri getir                              */
+/* ------------------------------------------------------------------ */
 
 async function baglanVeKategorileriGetir() {
-const mac = document.getElementById('mac').value.trim();
-if (!mac) return setStatus("MAC adresi girin!", 'error');
+  if (isScanning) return setStatus('Tarama sürerken yeni bağlantı başlatılamaz.', 'error');
 
-saveSettings();
-setLoading(true);
-setStatus("Bağlanılıyor (Handshake)...", 'info');
+  const mac = $('mac').value.trim();
+  if (!mac) {
+    setFieldError('mac', 'mac-hint', 'MAC adresi girin!');
+    return setStatus('MAC adresi girin!', 'error');
+  }
+  if (!validateInputs()) return setStatus('Giriş bilgilerini kontrol edin.', 'error');
 
-try {
-const hs = await fetchAPI({ type: 'stb', action: 'handshake', prehash: 0, token: '' });
-if (!hs || !hs.js) throw new Error("Portal yanıt vermedi veya MAC hatalı.");
-apiToken = hs.js.token || hs.js;
+  saveSettings();
+  setLoading(true);
+  hideProgress();
+  setStatus('Bağlanılıyor (Handshake)...', 'info');
 
-setStatus("Kategoriler çekiliyor...", 'info');
-const genresRes = await fetchAPI({ type: 'itv', action: 'get_genres' });
-const items = genresRes.js ||[];
-katMap = {};
-allCategories = items;
-items.forEach(g => { katMap[g.id] = g.title; });
+  try {
+    apiToken = '';
+    const hs = await fetchAPI({ type: 'stb', action: 'handshake', prehash: 0, token: '' });
+    if (!hs || !hs.js) throw new Error('Portal yanıt vermedi veya MAC hatalı.');
+    apiToken = (typeof hs.js === 'object' && hs.js.token) ? hs.js.token : hs.js;
 
-if (Object.keys(katMap).length === 0) throw new Error("Kategori bulunamadı.");
+    setStatus('Kategoriler çekiliyor...', 'info');
+    const genresRes = await fetchAPI({ type: 'itv', action: 'get_genres' });
+    const items = (genresRes && genresRes.js) || [];
+    if (!Array.isArray(items)) throw new Error('Portal beklenmeyen bir kategori yanıtı döndürdü.');
 
-renderModal(items);
-acModal();
-setStatus("Kategoriler başarıyla yüklendi.", 'success');
-} catch (err) {
-setStatus("Hata: " + err.message, 'error');
-} finally {
-setLoading(false);
-}
+    katMap = {};
+    allCategories = items;
+    items.forEach((g) => { if (g && g.id !== undefined) katMap[g.id] = g.title || g.alias || ('Kategori ' + g.id); });
+
+    if (Object.keys(katMap).length === 0) throw new Error('Kategori bulunamadı.');
+
+    renderModal(items);
+    acModal();
+    setStatus(`Kategoriler başarıyla yüklendi (${items.length} adet).`, 'success');
+  } catch (err) {
+    setStatus('Hata: ' + (err && err.message ? err.message : 'Bağlantı kurulamadı.'), 'error');
+  } finally {
+    setLoading(false);
+  }
 }
 
 function renderModal(items) {
-const listEl = document.getElementById('category-list');
-listEl.innerHTML = '';
+  const listEl = $('category-list');
+  listEl.innerHTML = '';
 
-items.forEach((g, index) => {
-const item = document.createElement('label');
-item.className = "cat-item checked";
-item.innerHTML = `
+  const fragment = document.createDocumentFragment();
+
+  items.forEach((g, index) => {
+    if (!g || g.id === undefined || g.id === null) return;
+    const title = String(g.title || g.alias || ('Kategori ' + g.id));
+    const item = document.createElement('label');
+    item.className = 'cat-item checked';
+    item.dataset.name = title.toLowerCase();
+    // innerHTML'e portal verisi doğrudan yazılmaz — kaçışlanır (XSS koruması)
+    item.innerHTML = `
 <span class="cat-num">${String(index + 1).padStart(2, '0')}</span>
-<input type="checkbox" value="${g.id}" class="cat-checkbox real-checkbox" checked>
-<div class="custom-check checked"></div>
-<span class="cat-name">${g.title}</span>
+<input type="checkbox" value="${esc(g.id)}" class="cat-checkbox real-checkbox" checked>
+<div class="custom-check checked" aria-hidden="true"></div>
+<span class="cat-name" title="${esc(title)}">${esc(title)}</span>
 `;
 
-const cb = item.querySelector('.cat-checkbox');
-const vis = item.querySelector('.custom-check');
-item.addEventListener('click', (e) => { 
-e.preventDefault();
-cb.checked = !cb.checked;
-vis.classList.toggle('checked', cb.checked);
-item.classList.toggle('checked', cb.checked);
-updateCheckAllVisual();
-});
-listEl.appendChild(item);
-});
+    const cb = item.querySelector('.cat-checkbox');
+    const vis = item.querySelector('.custom-check');
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      cb.checked = !cb.checked;
+      vis.classList.toggle('checked', cb.checked);
+      item.classList.toggle('checked', cb.checked);
+      updateCheckAllVisual();
+    });
+    fragment.appendChild(item);
+  });
 
-document.getElementById('check-all-visual').classList.add('checked');
-setupSearch();
-updateCounts();
+  listEl.appendChild(fragment);
+
+  $('check-all').checked = true;
+  $('check-all-visual').classList.add('checked');
+  $('search-categories').value = '';
+  setupSearch();
+  applyCategoryFilter();
+  updateCounts();
 }
 
-function acModal() { document.getElementById('category-modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-function kapatModal() { document.getElementById('category-modal').classList.remove('open'); document.body.style.overflow = ''; }
+/* ------------------------------------------------------------------ */
+/*  Modaller                                                           */
+/* ------------------------------------------------------------------ */
+
+function acModal() {
+  $('category-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => $('search-categories')?.focus(), 60);
+}
+
+function kapatModal() {
+  if (isScanning) return; // Tarama sırasında yanlışlıkla kapanmasın
+  $('category-modal').classList.remove('open');
+  document.body.style.overflow = '';
+  $('modal-warning').classList.remove('visible');
+}
 
 function showSaveModal(m3uString) {
-generatedM3uContent = m3uString;
-document.getElementById('final-filename').value = getDefaultFilename();
-document.getElementById('save-modal').classList.add('open');
-document.body.style.overflow = 'hidden';
+  generatedM3uContent = m3uString;
+  $('final-filename').value = getDefaultFilename();
+  $('save-channel-count').textContent = generatedStats.channels;
+  $('save-group-count').textContent = generatedStats.groups;
+  $('save-file-size').textContent = formatBytes(new Blob([m3uString]).size);
+  const copyBtn = $('btn-copy');
+  if (copyBtn) copyBtn.lastChild.textContent = 'Kopyala';
+  $('save-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => { const el = $('final-filename'); el?.focus(); el?.select(); }, 60);
 }
 
 function kapatSaveModal() {
-document.getElementById('save-modal').classList.remove('open');
-document.body.style.overflow = '';
-generatedM3uContent = ""; 
+  $('save-modal').classList.remove('open');
+  document.body.style.overflow = '';
+  generatedM3uContent = '';
+  generatedStats = { channels: 0, groups: 0 };
 }
 
+function formatBytes(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+}
+
+/** Dosya adını güvenli hale getirir ve indirir. */
 function gercekIndirmeyiTetikle() {
-let rawFilename = document.getElementById('final-filename').value.trim();
-if (!rawFilename) rawFilename = "INADINATV_LISTE";
-rawFilename = rawFilename.replace(/[^a-zA-Z0-9_\-\.]/g, '_');
-if (!rawFilename.toLowerCase().endsWith('.m3u')) rawFilename += ".m3u";
+  if (!generatedM3uContent) {
+    kapatSaveModal();
+    return setStatus('İndirilecek içerik bulunamadı. Lütfen tekrar deneyin.', 'error');
+  }
 
-const blob = new Blob([generatedM3uContent], { type: 'audio/x-mpegurl' });
-const link = document.createElement('a');
-link.href = URL.createObjectURL(blob);
-link.download = rawFilename;
-document.body.appendChild(link);
-link.click();
-document.body.removeChild(link);
+  let rawFilename = $('final-filename').value.trim();
+  if (!rawFilename) rawFilename = 'INADINATV_LISTE';
+  rawFilename = rawFilename.replace(/\.m3u8?$/i, '').replace(/[^a-zA-Z0-9_\-.]/g, '_');
+  if (!rawFilename) rawFilename = 'INADINATV_LISTE';
+  rawFilename += '.m3u';
 
-kapatSaveModal();
-setStatus("İşlem başarıyla tamamlandı. Dosya indiriliyor ✓", 'success');
+  const blob = new Blob([generatedM3uContent], { type: 'audio/x-mpegurl' });
+  const objectUrl = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = objectUrl;
+  link.download = rawFilename;
+  link.rel = 'noopener';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  setTimeout(() => URL.revokeObjectURL(objectUrl), 4000); // Bellek sızıntısını önle
+
+  const count = generatedStats.channels;
+  kapatSaveModal();
+  setStatus(`İşlem başarıyla tamamlandı. ${count} kanallık "${rawFilename}" indiriliyor ✓`, 'success');
+}
+
+/** M3U içeriğini panoya kopyalar (clipboard API + eski yöntem yedeği). */
+async function m3uKopyala() {
+  if (!generatedM3uContent) return;
+  const btn = $('btn-copy');
+  const label = btn.lastChild;
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(generatedM3uContent);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = generatedM3uContent;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    label.textContent = 'Kopyalandı ✓';
+    setTimeout(() => { label.textContent = 'Kopyala'; }, 1800);
+  } catch (err) {
+    label.textContent = 'Kopyalanamadı';
+    setTimeout(() => { label.textContent = 'Kopyala'; }, 1800);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Ana akış: kanalları tara + M3U üret                                */
+/* ------------------------------------------------------------------ */
+
+function taramayiDurdur() {
+  if (!isScanning) return;
+  scanCancelled = true;
+  scanController?.abort();
+  $('btn-stop-scan').disabled = true;
+  setStatus('Tarama durduruluyor... Toplanan kanallar korunacak.', 'info');
 }
 
 async function indirmeyiBaslat() {
-const checkboxes = document.querySelectorAll('.cat-checkbox:checked');
-const selectedIds = Array.from(checkboxes).map(cb => cb.value);
+  if (isScanning) return;
 
-if (selectedIds.length === 0) {
-alert("Lütfen en az bir kategori seçin.");
-return;
+  const checkboxes = document.querySelectorAll('.cat-checkbox:checked');
+  const selectedIds = Array.from(checkboxes).map((cb) => cb.value);
+
+  if (selectedIds.length === 0) {
+    flashModalWarning('Lütfen en az bir kategori seçin.');
+    return;
+  }
+
+  if (!validateInputs()) {
+    flashModalWarning('Portal veya MAC bilgisi geçersiz.');
+    return;
+  }
+
+  saveSettings();
+  kapatModal();
+
+  isScanning = true;
+  scanCancelled = false;
+  scanController = new AbortController();
+  $('btn-stop-scan').disabled = false;
+  setDownloadLoading(true);
+  setStatus('Kanallar yüksek hızda taranıyor... Lütfen bekleyin.', 'info');
+  setProgress(0, '%0 · kanallar taranıyor');
+
+  const portalStr = $('portal').value.trim();
+  const macStr = normalizeMac($('mac').value.trim());
+  const typeStr = $('type').value;
+  const extStr = $('stream-ext').value || 'ts';
+
+  let rootUrl = '';
+  try {
+    rootUrl = new URL(normalizePortal(portalStr)).origin;
+  } catch {
+    finishScanState();
+    return setStatus('Portal adresi çözümlenemedi.', 'error');
+  }
+
+  const chunks = [];
+  chunks.push('#EXTM3U\n\n');
+
+  let tamam = 0;
+  let processedChannels = [];
+  let expectedTotal = 0;
+  const seenKeys = new Set();
+  const seenGenres = new Set();
+  const groups = new Set();
+  let tasks = selectedIds.map((gid) => ({ gid, page: 1, currentCount: 0 }));
+
+  try {
+    while (tasks.length > 0 && !scanCancelled) {
+      const batch = tasks.splice(0, CONCURRENCY);
+      const results = await Promise.all(batch.map((task) =>
+        fetchAPI({
+          type: 'itv', action: 'get_ordered_list', genre: task.gid,
+          force_ch_link_check: 0, fav: 0, sortby: 'name', p: task.page, rows: ROWS_PER_PAGE,
+        }, { signal: scanController.signal })
+          .then((res) => ({ task, res, error: null }))
+          .catch((error) => ({ task, res: null, error }))
+      ));
+
+      for (const { task, res, error } of results) {
+        if (error || !res || !res.js) continue;
+        const data = Array.isArray(res.js.data) ? res.js.data : [];
+        const total = parseInt(res.js.total_items || 0, 10) || 0;
+
+        // Beklenen toplamı yalnızca ilk sayfada bir kez ekle (yüzde hesabı için)
+        if (!seenGenres.has(task.gid)) {
+          seenGenres.add(task.gid);
+          expectedTotal += Math.max(total, data.length);
+        }
+
+        for (const ch of data) {
+          if (!ch) continue;
+          const key = `${task.gid}:${ch.id ?? ch.cmd ?? ch.name}`;
+          if (seenKeys.has(key)) continue; // Aynı sayfayı tekrar döndüren portallara karşı
+          seenKeys.add(key);
+          processedChannels.push({ ...ch, gid: task.gid });
+        }
+
+        task.currentCount += data.length;
+        // Sayfa numarası taşarsa sonsuz döngüye girmesin
+        if (!scanCancelled && data.length > 0 && task.currentCount < total && task.page < MAX_PAGES_PER_GENRE) {
+          tasks.push({ gid: task.gid, page: task.page + 1, currentCount: task.currentCount });
+        }
+      }
+
+      const percent = expectedTotal > 0 ? (processedChannels.length / expectedTotal) * 100 : 0;
+      const doneGenres = selectedIds.length - new Set(tasks.map((t) => t.gid)).size;
+      setProgress(
+        percent,
+        `%${Math.round(Math.min(percent, 99))} · ${processedChannels.length} kanal · ${doneGenres}/${selectedIds.length} kategori`
+      );
+      setStatus(`Asenkron tarama devam ediyor... (${processedChannels.length} kanal bulundu)`, 'info');
+    }
+
+    if (processedChannels.length === 0) {
+      finishScanState();
+      hideProgress();
+      return setStatus(
+        scanCancelled ? 'Tarama durduruldu, hiçbir kanal alınamadı.'
+                      : 'Seçilen kategorilerde kanal bulunamadı. MAC yetkisini veya portal tipini kontrol edin.',
+        'error'
+      );
+    }
+
+    processedChannels.sort((a, b) => {
+      const idxA = selectedIds.indexOf(String(a.gid));
+      const idxB = selectedIds.indexOf(String(b.gid));
+      if (idxA !== idxB) return idxA - idxB;
+      const numDiff = (a.number || 0) - (b.number || 0);
+      if (numDiff !== 0) return numDiff;
+      return String(a.name || '').localeCompare(String(b.name || ''), 'tr');
+    });
+
+    setStatus('M3U listesi oluşturuluyor...', 'info');
+
+    for (const ch of processedChannels) {
+      const ad = String(ch.name || '').trim() || `Kanal ${ch.id ?? tamam + 1}`;
+      const cmd = String(ch.cmd || '').trim();
+      const ch_id = ch.id ?? '';
+      const logo = ch.logo || '';
+      // Portal tv_genre_id döndürmezse isteği attığımız kategori kullanılır
+      const grup = katMap[ch.tv_genre_id] || katMap[ch.gid] || 'Diğer';
+      const num = ch.number || (tamam + 1);
+      const epg = ch.xmltv_id || '';
+
+      if (!cmd && !ch_id) continue;
+      let streamUrl = '';
+
+      if (typeStr === 'machttp') {
+        let stream_id = ch_id;
+        if (!ch_id || isNaN(ch_id)) {
+          const match = cmd.match(/\/ch\/(\d+)/) || cmd.match(/stream[=/](\d+)/) || cmd.match(/\/(\d+)[_.]/) || cmd.match(/\b(\d{3,8})\b/);
+          if (match) stream_id = match[1];
+        }
+        if (stream_id) {
+          streamUrl = `${rootUrl}/play/live.php?mac=${encodeURIComponent(macStr)}&stream=${stream_id}&extension=${extStr}`;
+        } else if (/^https?:\/\//i.test(cmd.replace(/^\(?\s*ffmpeg\s*\)?\s*/i, ''))) {
+          // ID çıkarılamadıysa portalın kendi linkini olduğu gibi kullan
+          streamUrl = cmd.replace(/^\(?\s*ffmpeg\s*\)?\s*/i, '').trim();
+        }
+      } else {
+        streamUrl = ch_id ? `${rootUrl}/c/ch/${ch_id}` : '';
+      }
+
+      if (!streamUrl) continue;
+
+      chunks.push(
+        `#EXTINF:-1 tvg-id="${m3uAttr(epg)}" tvg-name="${m3uAttr(ad)}" tvg-logo="${m3uAttr(logo)}" tvg-chno="${m3uAttr(num)}" group-title="${m3uAttr(grup)}",${m3uAttr(ad)}\n${streamUrl}\n`
+      );
+      groups.add(grup);
+      tamam++;
+    }
+
+    generatedStats = { channels: tamam, groups: groups.size };
+    const m3u = chunks.join('');
+
+    finishScanState();
+    setProgress(100, `%100 · ${tamam} kanal hazır`);
+    hideProgress(1400);
+
+    if (tamam === 0) {
+      return setStatus('Liste oluşturulamadı: hiçbir kanaldan geçerli yayın linki çıkarılamadı.', 'error');
+    }
+
+    setStatus(
+      scanCancelled
+        ? `Tarama durduruldu — toplanan ${tamam} kanal ile liste oluşturuldu.`
+        : `İndirme hazır! Toplam ${tamam} kanal çok hızlı bir şekilde oluşturuldu. 🚀`,
+      'success'
+    );
+    showSaveModal(m3u);
+  } catch (err) {
+    finishScanState();
+    hideProgress();
+    if (err && err.name === 'AbortError') {
+      return setStatus('Tarama iptal edildi.', 'info');
+    }
+    setStatus('Kanal çekiminde hata: ' + (err && err.message ? err.message : 'Bilinmeyen hata'), 'error');
+  }
 }
 
-saveSettings();
-kapatModal();
-setStatus("Kanallar yüksek hızda taranıyor... Lütfen bekleyin.", 'info');
-
-const portalStr = document.getElementById('portal').value.trim();
-const portalUrl = new URL(portalStr);
-const rootUrl = portalUrl.origin;
-const macStr = document.getElementById('mac').value.trim();
-const typeStr = document.getElementById('type').value;
-const extStr = document.getElementById('stream-ext').value || 'ts';
-
-let m3u = '#EXTM3U x-tvg-url=""\n\n';
-let tamam = 0;
-let processedChannels =[];
-const CONCURRENCY = 6; 
-let tasks = selectedIds.map(gid => ({ gid, page: 1, currentCount: 0 }));
-
-try {
-while (tasks.length > 0) {
-const batch = tasks.splice(0, CONCURRENCY);
-const results = await Promise.all(batch.map(task => 
-fetchAPI({
-type: 'itv', action: 'get_ordered_list', genre: task.gid,
-force_ch_link_check: 0, fav: 0, sortby: 'name', p: task.page, rows: 500
-}).then(res => ({ task, res, error: null }))
-.catch(error => ({ task, res: null, error }))
-));
-
-for (let { task, res, error } of results) {
-if (error || !res || !res.js) continue;
-const data = res.js.data ||[];
-const total = parseInt(res.js.total_items || 0);
-processedChannels.push(...data.map(ch => ({...ch, gid: task.gid})));
-task.currentCount += data.length;
-if (data.length > 0 && task.currentCount < total) {
-tasks.push({ gid: task.gid, page: task.page + 1, currentCount: task.currentCount });
-}
-}
-setStatus(`Asenkron tarama devam ediyor... (${processedChannels.length} kanal bulundu)`, 'info');
+/** Tarama bittiğinde/bitti sayıldığında ortak temizlik. */
+function finishScanState() {
+  isScanning = false;
+  scanController = null;
+  setDownloadLoading(false);
+  $('btn-stop-scan').disabled = false;
 }
 
-processedChannels.sort((a, b) => {
-const idxA = selectedIds.indexOf(String(a.gid));
-const idxB = selectedIds.indexOf(String(b.gid));
-if (idxA !== idxB) return idxA - idxB;
-return (a.number || 0) - (b.number || 0);
-});
+/* ------------------------------------------------------------------ */
+/*  Kurulum                                                            */
+/* ------------------------------------------------------------------ */
 
-for (let ch of processedChannels) {
-const ad = (ch.name || "?").trim();
-const cmd = (ch.cmd || "").trim();
-const ch_id = ch.id || "";
-const logo = ch.logo || "";
-const grup = katMap[ch.tv_genre_id] || "Diğer";
-const num = ch.number || (tamam + 1);
-const epg = ch.xmltv_id || "";
+function bindUI() {
+  // MAC alanını yazarken otomatik biçimlendir
+  const macInput = $('mac');
+  macInput.addEventListener('blur', () => {
+    if (!macInput.value.trim()) return;
+    macInput.value = normalizeMac(macInput.value);
+    setFieldError('mac', 'mac-hint', isValidMac(macInput.value) ? '' : 'MAC adresi 12 karakter olmalı. Örnek: 00:1A:79:1B:2C:3D');
+  });
+  macInput.addEventListener('input', () => {
+    if (macInput.classList.contains('invalid') && isValidMac(macInput.value)) {
+      setFieldError('mac', 'mac-hint', '');
+    }
+  });
 
-if (!cmd && !ch_id) continue;
-let streamUrl = "";
+  // Portal alanı doğrulaması
+  const portalInput = $('portal');
+  portalInput.addEventListener('blur', () => {
+    const normalized = normalizePortal(portalInput.value);
+    if (!portalInput.value.trim()) return;
+    if (normalized) {
+      portalInput.value = normalized; // Şema eksikse tamamla (http://)
+      setFieldError('portal', 'portal-hint', '');
+    } else {
+      setFieldError('portal', 'portal-hint', 'Geçerli bir portal adresi girin. Örnek: http://site.com:80');
+    }
+  });
+  portalInput.addEventListener('input', () => {
+    if (portalInput.classList.contains('invalid') && normalizePortal(portalInput.value)) {
+      setFieldError('portal', 'portal-hint', '');
+    }
+  });
 
-if (typeStr === 'machttp') {
-let stream_id = ch_id;
-if (!ch_id || isNaN(ch_id)) {
-const match = cmd.match(/\/ch\/(\d+)/) || cmd.match(/stream[=/](\d+)/) || cmd.match(/\/(\d+)[_.]/) || cmd.match(/\b(\d{3,8})\b/);
-if (match) stream_id = match[1]; 
+  // Ayarları her değişiklikte sakla
+  ['portal', 'mac', 'type', 'stream-ext'].forEach((id) => {
+    const el = $(id);
+    el?.addEventListener('change', saveSettings);
+  });
+
+  // Enter ile hızlı bağlan
+  ['portal', 'mac'].forEach((id) => {
+    $(id)?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); baglanVeKategorileriGetir(); }
+    });
+  });
+
+  // Kayıt modalında Enter = kaydet
+  $('final-filename')?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); gercekIndirmeyiTetikle(); }
+  });
+
+  // Dışarı tıklama ile kapat
+  $('category-modal').addEventListener('click', function (e) { if (e.target === this) kapatModal(); });
+  $('save-modal').addEventListener('click', function (e) { if (e.target === this) kapatSaveModal(); });
+
+  // ESC ile kapat
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if ($('save-modal').classList.contains('open')) return kapatSaveModal();
+    if ($('category-modal').classList.contains('open')) return kapatModal();
+  });
+
+  // Hint metinlerini varsayılan olarak sakla
+  $('portal-hint').dataset.default = $('portal-hint').textContent;
+  $('mac-hint').dataset.default = $('mac-hint').textContent;
 }
-if (stream_id) {
-streamUrl = `${rootUrl}/play/live.php?mac=${encodeURIComponent(macStr)}&stream=${stream_id}&extension=${extStr}`;
-}
-} else {
-streamUrl = `${rootUrl}/c/ch/${ch_id}`;
+
+function init() {
+  loadSettings();
+  bindUI();
+  setupSearch();
 }
 
-if (streamUrl) {
-m3u += `#EXTINF:-1 tvg-id="${epg}" tvg-name="${ad}" tvg-logo="${logo}" tvg-chno="${num}" group-title="${grup}",${ad}\n${streamUrl}\n\n`;
-tamam++;
-}
-}
-
-setStatus(`İndirme hazır! Toplam ${tamam} kanal çok hızlı bir şekilde oluşturuldu. 🚀`, 'success');
-showSaveModal(m3u);
-
-} catch (err) {
-setStatus("Kanal çekiminde hata: " + err.message, 'error');
-}
-}
-
-document.getElementById('category-modal').addEventListener('click', function(e) { if (e.target === this) kapatModal(); });
-document.getElementById('save-modal').addEventListener('click', function(e) { if (e.target === this) kapatSaveModal(); });
-
-window.addEventListener('DOMContentLoaded', loadSettings);
+window.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
 </html>
