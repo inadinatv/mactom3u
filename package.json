@@ -1,0 +1,14 @@
+{
+  "name": "mactom3u",
+  "version": "2.4.0",
+  "private": true,
+  "type": "module",
+  "description": "İnadına TV — MAC adresli IPTV hesaplarını M3U listesine çeviren sunucusuz araç",
+  "scripts": {
+    "dev": "node tools/dev-server.mjs",
+    "test": "node tools/selftest.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

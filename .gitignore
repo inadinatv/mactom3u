@@ -1,0 +1,14 @@
+# Bağımlılıklar
+node_modules/
+
+# Vercel / yerel dağıtım artefaktları
+.vercel/
+dist/
+build/
+
+# Sistem & editör
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local
