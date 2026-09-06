@@ -7,7 +7,7 @@
 // Bu dosya Vercel / Netlify tarzı "serverless function" imzasını korur:
 //   export default async function handler(req, res)
 
-const REQUEST_TIMEOUT_MS = 25000;            // Portal isteği zaman aşımı (vercel.json maxDuration: 30)
+const REQUEST_TIMEOUT_MS = 25000;            // Portal isteği zaman aşımı — fonksiyon asılı kalmasın
 const MAX_RESPONSE_BYTES = 8 * 1024 * 1024;  // 8 MB — bellek koruması
 const USER_AGENT =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36';

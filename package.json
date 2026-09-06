@@ -7,8 +7,5 @@
   "scripts": {
     "dev": "node tools/dev-server.mjs",
     "test": "node tools/selftest.mjs"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }
